@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
+
+
+// Route::group(['namespace' => 'admin' , 'prefix' => 'admin',  'middleware' => 'web'],
+Route::group([ 'prefix' => 'cms'],
+  function(){
+        Route::resource('category', 'CategoryController');
+	}
+);
